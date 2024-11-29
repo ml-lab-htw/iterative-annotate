@@ -32,10 +32,10 @@ services:
     ports:
       - "3306:3306"
     environment:
-      - MARIADB_ROOT_PASSWORD=${DB_PASSWORD:-pw1234}
-      - MARIADB_DATABASE=${DB_NAME:-database-name}
-      - MARIADB_USER=${DB_USER:-default_user}
-      - MARIADB_PASSWORD=${DB_PASSWORD:-pw1234}
+      - MYSQL_DATABASE=${DB_NAME}
+      - MYSQL_USER=${DB_USER}
+      - MYSQL_PASSWORD=${DB_PASSWORD}
+      - MYSQL_ROOT_PASSWORD=${DB_PASSWORD}
     volumes:
       - mariadb_data:/var/lib/mysql
 
