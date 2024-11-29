@@ -7,13 +7,9 @@ services:
     ports:
       - "3000:3000"
     environment:
-      - NEXT_PUBLIC_BACKEND_URL=http://localhost:8000/api
+      - BACKEND_URL=http://backend:8000
     depends_on:
       - backend
-    volumes:
-      - ./frontend:/app
-      - /app/node_modules
-    command: npm run dev # Run Next.js in dev mode
 
   backend:
     build:
@@ -21,23 +17,25 @@ services:
     ports:
       - "8000:8000"
     environment:
-      - DB_HOST=mariadb
-      - DB_PORT=3306
-      - DB_USER=root
-      - DB_PASSWORD=example
-      - DB_NAME=mydatabase
+      - DB_NAME=${DB_NAME}
+      - DB_USER=${DB_USER}
+      - DB_PASSWORD=${DB_PASSWORD}
+      - DB_PORT=${DB_PORT}
+      - DB_HOST=${DB_HOST}
+      - SERVER_DOMAIN=http://localhost:8000
+      - BASE_DIR=/app
     depends_on:
       - mariadb
-    volumes:
-      - ./backend:/app
 
   mariadb:
     image: mariadb:latest
     ports:
       - "3306:3306"
     environment:
-      - MARIADB_ROOT_PASSWORD=example
-      - MARIADB_DATABASE=mydatabase
+      - MARIADB_ROOT_PASSWORD=${DB_PASSWORD:-pw1234}
+      - MARIADB_DATABASE=${DB_NAME:-database-name}
+      - MARIADB_USER=${DB_USER:-default_user}
+      - MARIADB_PASSWORD=${DB_PASSWORD:-pw1234}
     volumes:
       - mariadb_data:/var/lib/mysql
 

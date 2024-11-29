@@ -1,6 +1,8 @@
 [submodule "frontend"]
 	path = frontend
-	url = https://github.com/ml-lab-htw/iterative-annotate-frontend
+	url = git@github.com:ml-lab-htw/iterative-annotate-frontend.git
+	branch = mono-version
 [submodule "backend"]
 	path = backend
-	url = https://github.com/ml-lab-htw/iterative-annotate-backend
+	url = git@github.com:ml-lab-htw/iterative-annotate-backend.git
+	branch = mono-version
