@@ -1,8 +1,8 @@
 # Instructions
 
-## 1. Clone Repo with submodules
+## 1. After you clone the project, pull all sub-repositories
 ```bash
-git clone --recurse-submodules git@github.com:ml-lab-htw/iterative-annotate.git
+git submodule update --init
 ```
 
 ## 2. Start docker compose
