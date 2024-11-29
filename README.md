@@ -2,7 +2,7 @@
 
 ## 1. Clone Repo with submodules
 ```bash
-git clone --recurse-submodules git@github.com:yourusername/monorepo.git
+git clone --recurse-submodules git@github.com:ml-lab-htw/iterative-annotate.git
 ```
 
 ## 2. Start docker compose
